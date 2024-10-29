@@ -8,6 +8,10 @@ body {
     text-align: center;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* Header */
 header {
     background-color: #fff;
