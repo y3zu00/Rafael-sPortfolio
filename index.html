@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay muted loop id="myVideo">
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="scroll-progress"></div>
+    <a id="x" href="#header">Go Up</a>
+    <div class="header" id="header"> 
     <header>
         <nav>
             <div class="container">
@@ -57,6 +65,8 @@
             <a href="https://docs.google.com/presentation/d/1TBKLUBxxA8KIzQqds-PkMWNJOCvryKUzq57t29qGAsk/edit#slide=id.p" target="_blank">View My Resume</a>
         </div>
     </section>
+    <br>
+    <br>
 
     <section id="about">
         <div class="container">
@@ -72,9 +82,18 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <img src="2d.png" alt="Multi-Level Shooter">
-                    <h3>Multi-Level Shooter</h3>
-                    <p>A shooter game with multiple levels, AI opponents, and power-ups.</p>
-                    <a href="https://sites.google.com/forsythk12.org/rafaelshomemadegames/home?authuser=1" target="_blank">View Gaming Website</a>
+                    <h3>Frontline Fury</h3>
+                    <p>A multiplayer shooter game with multiple levels, AI opponents, and power-ups.</p>
+                </div>
+                <div class="project-card">
+                    <img src="gaming.png" alt="Gaming Website">
+                    <h3>Gaming Website</h3>
+                    <p>Created and deployed a public gaming website featuring a collection of games. The platform has gained significant traction with growing user engagement and views.</p>
+                    <div class="tech-stack">
+                    </div>
+                    <div class="project-links">
+                        <a href="https://sites.google.com/forsythk12.org/rafaelshomemadegames/home?authuser=1" target="_blank">View Gaming Website</a>
+                    </div>
                 </div>
                 <!-- Add more projects as needed -->
             </div>
@@ -87,15 +106,19 @@
             <div class="skills-list">
                 <div class="skill-item">
                     <h3>Game Development</h3>
-                    <p>Experienced in Python, Pygame, and 2D game mechanics.</p>
+                    <p>Experienced in Python, Pygame, and 2D game mechanics. Creating over 15 games and learning new things every day.</p>
                 </div>
                 <div class="skill-item">
                     <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, and responsive design.</p>
+                    <p>HTML, CSS, JavaScript, and responsive design. </p>
                 </div>
                 <div class="skill-item">
                     <h3>Problem Solving</h3>
-                    <p>CodeWars 6th kyu, algorithms, and competitive coding challenges.</p>
+                    <p>CodeWars 6th kyu, algorithms, and doing competitive coding challenges looking to improve my skills. </p>
+                </div>
+                <div class="skill-item">
+                    <h3>Prompt Engineering</h3>
+                    <p>Currently learning about prompt engineering and how to use it to my advantage in both backend and frontend development. </p>
                 </div>
             </div>
         </div>
@@ -136,5 +159,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <div id="particles-js"></div>
 </body>
 </html>
