@@ -13,9 +13,9 @@ html{
 }
 /* Header */
 header {
-    background-color: #fff;
-    padding: 7px 0;
-    border-bottom: 1px solid #eaeaea;
+    background-color: black;
+    padding: 4px 0;
+    border-bottom: 1px solid black;
     position: sticky;  /* Make header sticky */
     top: 0;
     z-index: 100;
@@ -60,7 +60,7 @@ header ul li a {
     align-items: center;
     flex-direction: column;
     padding: 120px 20px;
-    background: #f1f1f1;
+    background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
 }
 .hero-content h1 {
@@ -465,21 +465,21 @@ body {
 }
 
 .skill-item:nth-child(1):hover {  
-  background-image: url(favicon.ico);
+  background-image: url(img/favicon.ico);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .skill-item:nth-child(2):hover {  
-  background-image: url(webdev.png);
+  background-image: url(img/webdev.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .skill-item:nth-child(3):hover {  
-  background-image: url(codewars.jpg);
+  background-image: url(img/codewars.jpg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -487,7 +487,7 @@ body {
 }
 
 .skill-item:nth-child(4):hover {  
-  background-image: url(ai.jpg);
+  background-image: url(img/ai.jpg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -685,4 +685,33 @@ main {
 nav {
     animation: blurIn 1.5s ease;
     animation-delay: 0.2s;
+}
+
+/* Make nav links white */
+nav ul li a {
+    color: white !important;
+}
+
+/* Make your name/logo white */
+.logo a {
+    color: white !important;
+}
+
+/* Optional: add hover effect */
+nav ul li a:hover,
+.logo a:hover {
+    color: #956afa !important; /* Light grey on hover, or any color you prefer */
+}
+
+/* Make nav links and logo white with smooth transition */
+nav ul li a,
+.logo a {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+/* Purple fade on hover */
+nav ul li a:hover,
+.logo a:hover {
+    color: #8A2BE2 !important;
 }
