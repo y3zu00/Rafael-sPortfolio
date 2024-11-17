@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: white;
     background-color: #f8f9fa;
     text-align: center;
 }
@@ -156,6 +156,46 @@ header ul li a {
 .project-card img {
     width: 100%;
     border-radius: 10px;
+}
+
+.project-card, .skill-item, .experience-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover, .skill-item:hover, .experience-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+}
+
+.project-card:active, .skill-item:active, .experience-item:active {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Add ripple effect */
+.project-card::after, .skill-item::after, .experience-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+}
+
+.project-card:active::after, .skill-item:active::after, .experience-item:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+    transition: 0s;
 }
 
 /* Skills Section */
@@ -362,4 +402,284 @@ footer p {
     -webkit-transform: translateY(-400%);
     transform: translateY(-400%);
   }
+}
+
+#x{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 35%;
+}
+
+#about, #projects, #skills, #experience, #contact {
+    scroll-margin-top: 100px;
+}
+
+/* Modern but Subtle Color Scheme */
+:root {
+  --bg-color: #f8f9fa;
+  --primary-color: #2d3436;
+  --accent-color: #0984e3;
+  --hover-color: #74b9ff;
+  --card-bg: #ffffff;
+  --text-color: #2d3436;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Cool Animated Background */
+body {
+  background: 
+    linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth Card Styling */
+.project-card, .skill-item, .experience-item {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.project-card:hover, .skill-item:hover, .experience-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.skill-item:nth-child(1):hover {  
+  background-image: url(favicon.ico);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.skill-item:nth-child(2):hover {  
+  background-image: url(webdev.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.skill-item:nth-child(3):hover {  
+  background-image: url(codewars.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(179, 39, 39);
+}
+
+.skill-item:nth-child(4):hover {  
+  background-image: url(ai.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Smooth Section Transitions */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modern Button Styling */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+}
+
+/* Clean Headings */
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Subtle Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent-color);
+  z-index: 1000;
+  transition: width 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+/* Add this to ensure your content is visible over the video */
+main {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Optional: adds slight overlay to make text more readable */
+}
+
+/* Make general text white */
+body {
+    color: white;
+}
+
+/* Keep cards and main content original color */
+.project-card, 
+.experience-item,
+.contact-form {
+    color: var(--text-color); /* or your original color */
+}
+
+/* Make headings white */
+h2, h4, h5, h6{
+    color: white;
+}
+
+/* Keep headings inside cards original color */
+.project-card h2,
+.project-card h3,
+.experience-item h2,
+.experience-item h3 {
+    color: var(--text-color); /* or your original color */
+}
+
+/* Make navigation links white */
+.nav-link {
+    color: white;
+}
+
+body {
+    color: white;
+}
+
+.skill-item,
+.skill-item h3,
+.skill-item p {
+    color: var(--text-color) !important;
+}
+
+.skill-item:hover h3,
+.skill-item:hover p {
+    color: transparent !important;
+    transition: color 0.5s ease;
+}
+
+nav {
+    animation: blurIn 1.5s ease;
+    animation-delay: 0.2s;
+}
+
+#about h1,
+.intro,
+.intro-text,
+#about p:first-of-type {
+    animation: blurIn 1.5s ease;
+    animation-delay: 0.6s;
+}
+
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* Apply to the main container that wraps your entire content */
+main {
+    animation: blurIn 1.5s ease;
+}
+
+/* If you want a slightly staggered effect for the nav */
+nav {
+    animation: blurIn 1.5s ease;
+    animation-delay: 0.2s;
 }
