@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/bitmoji.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="video-background">
@@ -23,6 +24,7 @@
             <div class="container">
                 <div class="logo">
                     <a href="#">Rafael Ahmedov</a>
+                    <div class="location">⚲ Atlanta, Georgia</div>
                 </div>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -39,39 +41,34 @@
     <section id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Hi There, I'm <span>Rafael</span></h1>
-                <!-- <div class="card">
-                    <div class="loader">
-                      <p>loading</p>
-                      <div class="words">
-                        <span class="word">Game Developer</span>
-                        <span class="word">Tech Enthusiast</span>
-                        <span class="word">Web Developer</span>
-                        <span class="word">Tech</span>
-                        <span class="word">buttons</span>
-                      </div>
-                    </div>
-                  </div> -->
+                <h1>Hey There, I'm <span>Rafael</span></h1>
+                <div class="typing-text">
+                    <span>I'm a </span><span class="typed"></span>
+                </div>
                 <a href="#about" class="btn">About Me</a>
                 <div class="social-icons">
                     <a href="https://github.com/RafaelAhmedov799" target="_blank"><img src="img/github.jpg" alt="GitHub"></a>
                     <a href="https://www.linkedin.com/in/rafael-ahmedov-a17923322/" target="_blank"><img src="img/linkedin.png" alt="LinkedIn"></a>
-                    <!-- Add other social media links -->
                 </div>
             </div>
             <div class="hero-avatar">
                 <img src="img/bitmoji.png" alt="Rafael Ahmedov Avatar">
             </div>
-            <a href="https://docs.google.com/presentation/d/1TBKLUBxxA8KIzQqds-PkMWNJOCvryKUzq57t29qGAsk/edit#slide=id.p" target="_blank">View My Resume</a>
+            <div class="resume-section">
+                <a href="resume.pdf" target="_blank" class="resume-button">View My Resume</a>
+                <div class="location">
+                    <span>⚲ Atlanta, Georgia</span>
+                </div>
+            </div>
         </div>
     </section>
     <br>
     <br>
 
-    <section id="about">
+    <section id="about" class="fade-in">
         <div class="container">
             <h2>About Me</h2>
-            <p>Passionate Software & AI Enthusiast who loves creating dynamic web experiences and fun, interactive 2D games. With 3 years of Python development and over 15 game projects under my belt, I bring creativity and logic together to solve problems and build cool stuff.</p>
+            <p>I am a Software & AI Enthusiast who loves creating dynamic web experiences and fun, interactive 2D games. With 3 years of Python development and over 15 game projects under my belt, I bring creativity and logic together to solve problems and build cool stuff.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
@@ -93,7 +90,7 @@
                 <div class="project-card">
                     <img src="img/gaming.png" alt="Gaming Website">
                     <h3>Gaming Website</h3>
-                    <p>Created and deployed a public gaming website featuring a collection of games. The platform has gained significant traction with growing user engagement and views.</p>
+                    <p>Inspired by steam I created and deployed a public gaming website featuring a collection of games. The platform has gained significant traction with growing user engagement and views.</p>
                     <div class="tech-stack">
                     </div>
                     <div class="project-links">
@@ -105,25 +102,32 @@
         </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <h3>Game Development</h3>
-                    <p>Experienced in Python, Pygame, and 2D game mechanics. Creating over 15 games and learning new things every day.</p>
+    <section id="skills-web">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <canvas id="skillsCanvas"></canvas>
+            <div class="skill-nodes">
+                <div class="center-node">My Skills</div>
+                <div class="skill-node" data-skill="Game Development" data-image="img/favicon.png">Game Development</div>
+                <div class="skill-node" data-skill="Web Development" data-image="img/webdev.png">Web Development</div>
+                <div class="skill-node" data-skill="Problem Solving" data-image="img/codewars.png">Problem Solving</div>
+                <div class="skill-node" data-skill="Prompt Engineering" data-image="img/ai.jpg">Prompt Engineering</div>
+                <div class="skill-node" data-skill="Time Management" data-image="img/clock.jpg">Time Management</div>
+                <div class="skill-node" data-skill="Communication" data-image="img/com.webp">Communication</div>
+            </div>
+        </div>
+
+        <!-- Modal (moved inside the section) -->
+        <div class="skill-modal" id="skillModal">
+            <div class="modal-wrapper">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
                 </div>
-                <div class="skill-item">
-                    <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, and responsive design. </p>
-                </div>
-                <div class="skill-item">
-                    <h3>Problem Solving</h3>
-                    <p>CodeWars 6th kyu, algorithms, and doing competitive coding challenges looking to improve my skills. </p>
-                </div>
-                <div class="skill-item">
-                    <h3>Prompt Engineering</h3>
-                    <p>Currently learning about prompt engineering and how to use it to my advantage in both backend and frontend development. </p>
+                <!-- Image now outside the modal-content -->
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Skill">
                 </div>
             </div>
         </div>
@@ -132,16 +136,57 @@
     <section id="experience">
         <div class="container">
             <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <h3>IT Intern</h3>
-                    <p>IT Intern at Phoenix Systems, managing customer care, systems, and software.</p>
-                    <h3>Lawn Mowing Business</h3>
-                    <p>Entrepreneurial experience in managing operations, client relationships, and scaling services.</p>
-                    <h3>Freelancing</h3>
-                    <p>Using a freelancing platform called fiverr, for about 1 year I freelanced in making custom games and any coding projects people had. Raising over hundreds of dollars.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">October 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>IT Intern</h3>
+                        <p>IT Intern at Phoenix Systems, managing customer care, systems, and software. Working coworkers to imporve my skills and manage the company</p>
+                    </div>
                 </div>
-                <!-- Add more experience -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Freelancing</h3>
+                        <p>Using a freelancing platform called fiverr, for about 1 year I freelanced in making custom games and any coding projects people had. Raising over hundreds of dollars.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2024</div>
+                    <div class="timeline-content">
+                        <h3>Lawn Mowing Business</h3>
+                        <p>Entrepreneurial experience in managing operations, client relationships, and scaling services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learning">
+        <div class="container">
+            <h2>Currently Learning</h2>
+            <div class="learning-items">
+                <div class="learning-item">
+                    <div class="learning-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>I am pursuing a Google Certification on AI Essentials, whilst trying to learn Machine Learning.</p>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                
+                <div class="learning-item">
+                    <div class="learning-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3>Java</h3>
+                    <p>Currently developing my skills through Java by watching videos and creating mini projects.</p>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -150,6 +195,41 @@
         <div class="container">
             <h2>Contact Me</h2>
             <p>Feel free to reach out to discuss projects, collaborations, or just to say hi!</p>
+            
+            <!-- New Interactive Form -->
+            <form id="contact-form" onsubmit="return handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Your Name</label>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Your Email</label>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" required>
+                    <label for="subject">Subject</label>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="message">Your Message</label>
+                    <div class="error-message"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="default">Send Message</span>
+                    <span class="loading">Sending...</span>
+                    <span class="sent">Message Sent!</span>
+                </button>
+            </form>
+
+            <!-- Existing Contact Info -->
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:rafaelahmedov799@gmail.com">rafaelahmedov799@gmail.com</a></p>
                 <p><strong>Phone:</strong> <a href="tel:+17063009505">706-300-9505</a></p>
@@ -163,8 +243,47 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("RJtn2UKg3yDbOPrcO");
+        })();
+    </script>
     <script src="script.js"></script>
     <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        new Typed('.typed', {
+            strings: [
+                'Game Developer',
+                'Web Developer',
+                'Problem Solver',
+                'Tech Enthusiast',
+                'Python Developer'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1000,
+            loop: true,
+            smartBackspace: true,
+            showCursor: true,
+            cursorChar: '|',
+            autoInsertCss: true
+        });
+    </script>
+    <div class="floating-logos">
+        <div class="logo-container">
+            <img src="img/logo1.png" alt="Logo 1" class="floating-logo">
+            <img src="img/logo2.png" alt="Logo 2" class="floating-logo">
+            <img src="img/logo3.jpg" alt="Logo 3" class="floating-logo">
+            <img src="img/logo4.png" alt="Logo 4" class="floating-logo">
+            <img src="img/logo5.jpg" alt="Logo 5" class="floating-logo">
+            <img src="img/logo6.png" alt="Logo 6" class="floating-logo">
+            <img src="img/logo7.png" alt="Logo 7" class="floating-logo">
+            <img src="img/logo8.png" alt="Logo 8" class="floating-logo">
+            <img src="img/codewars.png" alt="Logo 9" class="floating-logo">
+        </div>
+    </div>
 </body>
 </html>
 
