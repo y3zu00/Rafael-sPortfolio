@@ -298,3 +298,156 @@ const observerOptions = {
         closeModalWithAnimation();
     }
   });
+
+// ADD THIS AT THE END OF YOUR EXISTING script.js - DON'T REPLACE ANYTHING!
+// Keep all your existing code above this
+
+document.addEventListener('DOMContentLoaded', () => {
+  const playButton = document.getElementById('playButton');
+  const gameContainer = document.getElementById('gameContainer');
+  const canvas = document.getElementById('pongCanvas');
+  const gameOver = document.getElementById('gameOver');
+  const ctx = canvas.getContext('2d');
+
+  let gameLoop;
+  let paddle = { width: 10, height: 100, y: 250 };
+  let ball = { x: 400, y: 300, dx: 5, dy: 5, radius: 10 };
+  let score = 0;
+  let speedIncrease = 1.1;
+  let speedIncreaseInterval = 5;
+
+  function startGame() {
+    // First show the container
+    gameContainer.style.display = 'block';
+    
+    // Force a reflow
+    gameContainer.offsetHeight;
+    
+    // Then add the active class for animation
+    gameContainer.classList.add('active');
+    
+    // Initialize game
+    canvas.width = gameContainer.offsetWidth;
+    canvas.height = gameContainer.offsetHeight;
+    paddle.y = canvas.height / 2 - paddle.height / 2;
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.dx = 5;
+    ball.dy = 5;
+    score = 0;
+    gameOver.style.display = 'none';
+    gameLoop = requestAnimationFrame(update);
+  }
+
+  function update() {
+      if (!gameContainer.classList.contains('active')) {
+          return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+          ball.dy *= -1;
+      }
+
+      if (ball.x - ball.radius < 20 && 
+          ball.y > paddle.y && 
+          ball.y < paddle.y + paddle.height) {
+          ball.dx *= -1;
+          score++;
+          
+          if (score % speedIncreaseInterval === 0) {
+              ball.dx *= speedIncrease;
+              ball.dy *= speedIncrease;
+          }
+      }
+
+      if (ball.x < 0) {
+          endGame();
+          return;
+      }
+
+      if (ball.x + ball.radius > canvas.width) {
+          ball.dx *= -1;
+      }
+
+      ctx.fillStyle = '#8A2BE2';
+      ctx.fillRect(10, paddle.y, paddle.width, paddle.height);
+
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.font = '24px Arial';
+      ctx.fillStyle = 'white';
+      ctx.fillText('Score: ' + score, 10, 30);
+
+      gameLoop = requestAnimationFrame(update);
+  }
+
+  function endGame() {
+      cancelAnimationFrame(gameLoop);
+      document.getElementById('finalScore').textContent = score;
+      gameOver.style.display = 'block';
+  }
+
+  function exitGame() {
+      cancelAnimationFrame(gameLoop);
+      gameContainer.classList.remove('active');
+  }
+
+  // Event Listeners
+  if (playButton) {
+      playButton.addEventListener('click', startGame);
+  }
+  
+  if (document.getElementById('restartButton')) {
+      document.getElementById('restartButton').addEventListener('click', startGame);
+  }
+  
+  if (document.getElementById('exitButton')) {
+      document.getElementById('exitButton').addEventListener('click', exitGame);
+  }
+
+  if (canvas) {
+      canvas.addEventListener('mousemove', (e) => {
+          let rect = canvas.getBoundingClientRect();
+          let mouseY = e.clientY - rect.top;
+          paddle.y = mouseY - paddle.height / 2;
+
+          if (paddle.y < 0) paddle.y = 0;
+          if (paddle.y + paddle.height > canvas.height) {
+              paddle.y = canvas.height - paddle.height;
+          }
+      });
+  }
+
+  document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+          exitGame();
+      }
+  });
+
+  // New click handler for exiting the game
+  document.addEventListener('click', function(e) {
+      if (gameContainer.classList.contains('active')) {
+          if (!gameOver.contains(e.target) && !playButton.contains(e.target)) {
+              exitGame();
+          }
+      }
+  });
+});
+function exitGame() {
+  // Remove active class first for animation
+  gameContainer.classList.remove('active');
+  
+  // Wait for animation to finish before hiding
+  setTimeout(() => {
+      cancelAnimationFrame(gameLoop);
+      gameContainer.style.display = 'none';
+  }, 300);
+}

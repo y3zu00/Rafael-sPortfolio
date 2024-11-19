@@ -59,6 +59,22 @@
                 <div class="location">
                     <span>⚲ Atlanta, Georgia</span>
                 </div>
+                <button id="playButton" class="play-button">
+                    <span>Play Pong</span>
+                    <i class="fas fa-gamepad"></i>
+                </button>
+            </div>
+        </div>
+        <div id="gameContainer" class="game-container">
+            <div class="game-instructions">
+                Press ESC or Click to Exit
+            </div>
+            <canvas id="pongCanvas"></canvas>
+            <div id="gameOver" class="game-over">
+                <h2>Game Over!</h2>
+                <p>Your Score: <span id="finalScore">0</span></p>
+                <button id="restartButton">Play Again</button>
+                <button id="exitButton">Exit</button>
             </div>
         </div>
     </section>
