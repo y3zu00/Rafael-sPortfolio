@@ -451,3 +451,36 @@ function exitGame() {
       gameContainer.style.display = 'none';
   }, 300);
 }
+
+// Add this to your existing JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileWarning = document.getElementById('mobileWarning');
+    const closeWarning = document.getElementById('closeWarning');
+    
+    // Check if on mobile
+    if (window.innerWidth <= 768) {
+        mobileWarning.style.display = 'block';
+        
+        // Close button click handler
+        closeWarning.addEventListener('click', () => {
+            mobileWarning.style.display = 'none';
+            localStorage.setItem('mobileWarningShown', 'true');
+        });
+
+        // Also close when clicking outside the warning content
+        mobileWarning.addEventListener('click', (e) => {
+            if (e.target === mobileWarning) {
+                mobileWarning.style.display = 'none';
+                localStorage.setItem('mobileWarningShown', 'true');
+            }
+        });
+
+        // Add escape key handler
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                mobileWarning.style.display = 'none';
+                localStorage.setItem('mobileWarningShown', 'true');
+            }
+        });
+    }
+});
