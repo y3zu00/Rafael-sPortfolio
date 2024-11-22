@@ -338,50 +338,6 @@ footer p {
     margin: 0;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    /* Stack grid items vertically */
-    .projects-grid, .skills-list, .experience-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Make sure cards take full width on mobile */
-    .project-card, .skill-item, .experience-item {
-        max-width: 100%;
-    }
-
-    /* Ensure text is centered and smaller on smaller devices */
-    .hero-content h1 {
-        font-size: 32px;
-    }
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    /* Reduce padding and margins for smaller screens */
-    .hero-container, #about .container, #projects .container, #skills .container, #experience .container, #contact .container {
-        padding: 40px 10px;
-    }
-
-    /* Adjust the social icons for mobile */
-    .social-icons {
-        flex-direction: row;
-        justify-content: center;
-    }
-    
-    /* Resize the avatar image in the hero section for mobile */
-    .hero-avatar img {
-        max-width: 150px;
-    }
-
-    /* Adjust button size for smaller screens */
-    .hero-content .btn {
-        font-size: 16px;
-        padding: 8px 20px;
-    }
-}
-
 .card {
   /* color used to softly clip top and bottom of the .words container */
   --bg-color: #212121;
@@ -929,19 +885,6 @@ nav ul li a:hover,
     margin-bottom: 10px;
     color: white;
 }
-
-@media screen and (max-width: 600px) {
-    .timeline::after {
-        left: 31px;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-}
-
 /* Contact Form Styles */
 #contact-form {
     max-width: 600px;
@@ -1190,14 +1133,6 @@ nav ul li a:hover,
     to { width: 100%; }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .learning-item {
-        min-width: 300px;
-        padding: 25px;
-    }
-}
-
 .floating-logos {
     position: fixed;
     left: 20px;
@@ -1249,20 +1184,6 @@ nav ul li a:hover,
         transform: translateY(-100vh);
     }
 }
-
-/* Make it responsive */
-@media (max-width: 768px) {
-    .floating-logos {
-        width: 40px;
-        left: 10px;
-    }
-    
-    .floating-logo {
-        width: 25px;
-        height: 25px;
-    }
-}
-
 /* Animation classes */
 .fade-in {
     opacity: 0;
@@ -1415,22 +1336,6 @@ nav ul li a:hover,
 
 .close-modal:hover {
     color: #ff3366;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .skills-container {
-        height: 500px;
-    }
-    
-    .skill-node {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    
-    .center-node {
-        padding: 12px 20px;
-    }
 }
 
 .resume-section {
@@ -1607,22 +1512,6 @@ nav ul li a:hover,
     }
 }
 
-/* Even smaller screens */
-@media (max-width: 480px) {
-    .skills-container {
-        transform: scale(0.6);
-    }
-
-    .experience-item {
-        width: 95%;
-    }
-
-    .floating-logo {
-        width: 25px !important;
-        height: 25px !important;
-    }
-}
-
 .mobile-warning {
     display: none;
     position: fixed;
@@ -1681,5 +1570,333 @@ nav ul li a:hover,
 @media (max-width: 768px) {
     .mobile-warning {
         display: block;
+    }
+}
+
+/* From Uiverse.io by alexruix */ 
+.loader {
+    width: 112px;
+    height: 112px;
+  }
+  
+  .box1,
+  .box2,
+  .box3 {
+    border: 16px solid #f5f5f5;
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+  }
+  
+  .box1 {
+    width: 112px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+    animation: abox1 4s 1s forwards ease-in-out infinite;
+  }
+  
+  .box2 {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+    animation: abox2 4s 1s forwards ease-in-out infinite;
+  }
+  
+  .box3 {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+    animation: abox3 4s 1s forwards ease-in-out infinite;
+  }
+  
+  /* Add these styles for the Bitmoji container */
+  .bitmoji-container {
+    position: relative;
+    width: 150px;  /* Adjust to match your image size */
+    height: 150px; /* Adjust to match your image size */
+    cursor: pointer;
+  }
+
+  .bitmoji-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .circle-animation {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #8A2BE2;  /* Your theme color */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .bitmoji-container:hover .circle-animation {
+    opacity: 1;
+    animation: circleRotate 2s linear forwards;
+  }
+
+  @keyframes circleRotate {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: #8A2BE2;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    25% {
+        border-top-color: #8A2BE2;
+        border-right-color: #8A2BE2;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    50% {
+        border-top-color: #8A2BE2;
+        border-right-color: #8A2BE2;
+        border-bottom-color: #8A2BE2;
+        border-left-color: transparent;
+    }
+    75% {
+        border-top-color: #8A2BE2;
+        border-right-color: #8A2BE2;
+        border-bottom-color: #8A2BE2;
+        border-left-color: #8A2BE2;
+    }
+    100% {
+        transform: rotate(360deg);
+        border-color: #8A2BE2;
+    }
+  }
+  
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.1rem 0;
+    padding: 1rem 0;
+}
+
+.bitmoji-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -1rem 0;
+}
+
+.bitmoji-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.circle-animation {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #8A2BE2;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+}
+
+.bitmoji-container:hover .circle-animation {
+    opacity: 1;
+    animation: circleRotate 1s linear forwards;
+}
+
+.location {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    display: inline-block; /* Needed for transform to work */
+}
+
+.location:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.more-projects {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.view-more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #8A2BE2;
+}
+
+.view-more i {
+    font-size: 20px;
+    margin-bottom: 5px;
+    animation: bounce 2s infinite;
+}
+
+.view-more span {
+    font-size: 0.9em;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.more-projects h3 {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 25px;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.github-link img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.github-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 650px) {
+    /* Header */
+    header .logo a {
+        font-size: 15px;
+    }
+
+    header ul {
+        font-size: 9px;
+    }
+
+    Skills
+    .skill-nodes {
+        grid-template-columns: repeat(3, 1fr);  /* 3 skills per row */
+        gap: 8px;
+        padding: 10px;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .skill-node {
+        padding: 8px;
+        font-size: 11px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Timeline/Experience */
+    .timeline {
+        padding: 10px;
+    }
+
+    .timeline-item {
+        width: 50%;
+        margin-right: 70%;
+        padding: 12px;
+    }
+
+    .timeline-content h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .timeline-content p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .floating-logo {
+        max-height: 15px;
+        /* max-width: 15px; */
+        left: -15px;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;  /* Single column */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .project-card {
+        height: auto;  /* Auto height */
+        max-height: 300px;  /* Maximum height */
+        padding: 15px;
+    }
+
+    .project-card img {
+        height: 120px;  /* Smaller images */
+    }
+
+    .project-card h3 {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+    .project-card p {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .project-card a {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    /* General Spacing */
+    .container {
+        padding: 20px 10px;
+    }
+
+    section {
+        padding: 20px 0;
     }
 }

@@ -484,3 +484,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.querySelector('.bitmoji-container').addEventListener('mouseover', function() {
+    const bitmojiImage = this.querySelector('.bitmoji-image');
+    const circleAnimation = this.querySelector('.circle-animation');
+    
+    circleAnimation.addEventListener('animationend', function() {
+        bitmojiImage.src = 'img/bitmoji2.png';
+    }, { once: true });
+});
+
+// Reset image when mouse leaves
+document.querySelector('.bitmoji-container').addEventListener('mouseleave', function() {
+    const bitmojiImage = this.querySelector('.bitmoji-image');
+    bitmojiImage.src = 'img/bitmoji.png';
+});
