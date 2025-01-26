@@ -276,6 +276,7 @@ header ul li a {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    
     .skills-list {
         grid-template-columns: 1fr;
     }
@@ -285,6 +286,36 @@ header ul li a {
     }
 }
 
+.hard-skills {
+    margin-top: 20px; /* Adjust margin to position closer to Skills */
+    text-align: center;
+}
+
+.hard-skills h3 {
+    color: white; /* Title color */
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.hard-skills-list {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the items */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    gap: 15px; /* Space between skills */
+}
+
+.hard-skills-list span {
+    background: rgba(255, 255, 255, 0.1); /* Background for each skill */
+    padding: 10px 15px; /* Padding around each skill */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    transition: background 0.3s; /* Transition for hover effect */
+}
+
+.hard-skills-list span:hover {
+    background: rgba(138, 43, 226, 0.5); /* Change background on hover */
+}
 /* Experience Section */
 #experience .container {
     text-align: center;
@@ -1898,5 +1929,15 @@ nav ul li a:hover,
 
     section {
         padding: 20px 0;
+    }
+}
+
+/* Hide floating logos on mobile */
+@media (max-width: 768px) {
+    .floating-logos {
+        display: none; /* Hide the floating logos */
+    }
+    .skills-container {
+        display: none;
     }
 }

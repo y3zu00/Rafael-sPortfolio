@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div id="mobileWarning" class="mobile-warning">
+    <!-- <div id="mobileWarning" class="mobile-warning">
         <div class="warning-content">
             <h2>Mobile Users</h2>
             <p>Mobile site is currently being fixed.</p>
             <p>Thank you for your understanding.</p>
             <button id="closeWarning">Continue to Site</button>
         </div>
-    </div>
+    </div> -->
     <div class="video-background">
         <video autoplay muted loop id="myVideo">
             <source src="img/your-video.mp4" type="video/mp4">
@@ -38,7 +38,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#skills-web">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -145,7 +145,7 @@
         </div>
     </section>
 
-    <section id="skills-web">
+    <section id="skills-web" class="skills-section">
         <h2>Skills</h2>
         <div class="skills-container">
             <canvas id="skillsCanvas"></canvas>
@@ -159,39 +159,58 @@
                 <div class="skill-node" data-skill="Communication" data-image="img/com.webp">Communication</div>
             </div>
         </div>
+    </section>
 
-        <!-- Modal (moved inside the section) -->
-        <div class="skill-modal" id="skillModal">
-            <div class="modal-wrapper">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h3 id="modalTitle"></h3>
-                    <p id="modalDescription"></p>
-                </div>
-                <!-- Image now outside the modal-content -->
-                <div class="modal-image">
-                    <img id="modalImage" src="" alt="Skill">
-                </div>
-            </div>
+    <!-- New Hard Skills Section -->
+    <section class="hard-skills" id="hard-skills" style="margin-top: 20px;">
+        <h3 style="color: white;">Hard Skills</h3>
+        <div class="hard-skills-list">
+            <span>Python</span>
+            <span>SQL</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Excel</span>
+            <span>Django</span>
+            <span>OpenAI</span>
+            <span>AWS</span>
+            <span>Flask</span>
+            <!-- Add more skills as needed -->
         </div>
     </section>
 
-    <section id="experience">
+    <!-- Modal (moved inside the section) -->
+    <div class="skill-modal" id="skillModal">
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+            <!-- Image now outside the modal-content -->
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Skill">
+            </div>
+        </div>
+    </div>
+
+    <section id="experience" style="margin-top: 60px;">
         <div class="container">
             <h2>Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
+                    
                     <div class="timeline-date">October 2024 - Present</div>
                     <div class="timeline-content">
                         <h3>IT Intern</h3>
-                        <p>IT Intern at Phoenix Systems, managing customer care, systems, and software. Working coworkers to imporve my skills and manage the company</p>
+                        <p>IT Intern at Phoenix Systems, managing customer care, systems, and software. Working with coworkers to improve my skills and manage the company.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2022 - Present</div>
                     <div class="timeline-content">
                         <h3>Freelancing</h3>
-                        <p>Using a freelancing platform called fiverr, for about 1 year I freelanced in making custom games and any coding projects people had. Raising over hundreds of dollars.</p>
+                        <p>Using a freelancing platform called Fiverr, for about 1 year I freelanced in making custom games and any coding projects people had, raising over hundreds of dollars.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -221,7 +240,7 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>AI & Machine Learning</h3>
-                    <p>I am pursuing a Google Certification on AI Essentials, whilst trying to learn Machine Learning.</p>
+                    <p>I am pursuing the AWS AI Practioner certifcation, whilst trying to learn Machine Learning.</p>
                     <div class="progress-bar">
                         <div class="progress"></div>
                     </div>
@@ -231,8 +250,8 @@
                     <div class="learning-icon">
                         <i class="fab fa-java"></i>
                     </div>
-                    <h3>Java</h3>
-                    <p>Currently developing my skills through Java by watching videos and creating mini projects.</p>
+                    <h3>SQL</h3>
+                    <p>Currently developing my skills on SQL by watching videos and creating mini projects.</p>
                     <div class="progress-bar">
                         <div class="progress"></div>
                     </div>
