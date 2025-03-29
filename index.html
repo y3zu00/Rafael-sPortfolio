@@ -69,7 +69,10 @@
                 </div>
             </div>
             <div class="resume-section">
-                <a href="https://docs.google.com/presentation/d/1TBKLUBxxA8KIzQqds-PkMWNJOCvryKUzq57t29qGAsk/edit?usp=sharing" target="_blank" class="resume-button">View My Resume</a>
+                <button class="resume-button" id="resumeButton">
+                    <span class="button-text">View My Resume</span>
+                    <span class="button-icon">📄</span>
+                </button>
                 <h2 class="location">
                     <a href="https://www.google.com/maps/place/Atlanta,+GA" target="_blank" style="color: inherit; text-decoration: none;">
                         ⚲ Atlanta, Georgia
@@ -362,6 +365,39 @@
             <img src="img/codewars.png" alt="Logo 9" class="floating-logo">
         </div>
     </div>
+
+    <div id="resumeModal" class="resume-modal">
+        <div class="resume-modal-content">
+            <img src="img/Resume_RafaelAhmedov.png" alt="Rafael Ahmedov Resume" class="resume-image">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resumeModal = document.getElementById('resumeModal');
+            const resumeBtn = document.getElementById('resumeButton');
+
+            resumeBtn.onclick = function() {
+                resumeModal.style.display = "block";
+                // Trigger reflow
+                resumeModal.offsetHeight;
+                resumeModal.classList.add('show');
+            }
+
+            // Click anywhere to close
+            resumeModal.addEventListener('click', function() {
+                resumeModal.classList.remove('show');
+                setTimeout(() => {
+                    resumeModal.style.display = "none";
+                }, 300);
+            });
+
+            // Prevent clicks on the resume image from closing the modal
+            document.querySelector('.resume-image').addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 </body>
 </html>
 
