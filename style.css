@@ -2006,7 +2006,6 @@ nav ul li a:hover,
     background-color: rgba(0, 0, 0, 0.9);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    cursor: pointer;  /* Add pointer cursor to indicate clickable area */
 }
 
 .resume-modal.show {
@@ -2039,7 +2038,30 @@ nav ul li a:hover,
     object-fit: contain;
     box-shadow: 0 5px 25px rgba(0,0,0,0.2);
     border-radius: 4px;
-    cursor: default;  /* Reset cursor for the image */
+}
+
+.close-resume {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    color: #f1f1f1;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.resume-modal.show .close-resume {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.close-resume:hover {
+    color: #999;
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Mobile Responsiveness for Resume */
@@ -2053,6 +2075,12 @@ nav ul li a:hover,
         width: 95%;
         height: 90vh;
         padding: 10px;
+    }
+
+    .close-resume {
+        right: 15px;
+        top: 5px;
+        font-size: 25px;
     }
 
     .resume-image {
